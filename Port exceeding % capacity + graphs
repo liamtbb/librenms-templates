@@ -15,6 +15,8 @@
 <img src="http://SERVER/graph.php?id={{ $value['port_id'] }}&type=port_bits&width=459&height=213&lazy_w=552&from=end-24h&device&legend=yes"><br><br><br>
 @endforeach
 
+
+
 <!--
 #ALERT TITLE
 ALERT:  @foreach($alert->faults as $key => $value){{ $value['ifDescr'] }}[{{ $value['ifAlias'] }}] @endforeach on  {{ $alert->hostname }}  Exceeding 85% Capacity
