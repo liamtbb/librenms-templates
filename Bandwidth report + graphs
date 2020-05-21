@@ -15,3 +15,13 @@
 <b>This Year:</b><br>
 <img src="http://SERVER/graph.php?id={{ $value['port_id'] }}&type=port_bits&width=459&height=213&lazy_w=552&from=end-12m&device&legend=yes"><br><br>
 @endforeach
+
+
+
+<!--
+#ALERT TITLE
+ALERT:
+
+#RECOVERY TITLE
+NORMAL:
+-->
