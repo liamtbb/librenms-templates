@@ -1,0 +1,17 @@
+<h2><span style="color:blue;">Weekly Bandwidth Report</span></h2>
+
+@foreach ($alert->faults as $key => $value)
+<h4><b>Physical Interface:</b> {{ $value['ifDescr'] }}</h4>
+<b>Interface Description:</b> {{ $value['ifAlias'] }}<br>
+<b>Interface Speed:</b> {{ ($value['ifSpeed']/1000000000) }}Gbs<br>
+<b>Inbound Utilization:</b> {{ (($value['ifInOctets_rate']*8)/$value['ifSpeed'])*100 }}%<br>
+<b>Outbound Utilization:</b> {{ (($value['ifOutOctets_rate']*8)/$value['ifSpeed'])*100 }}%<br><br>
+<b>Today:</b><br>
+<img src="http://SERVER/graph.php?id={{ $value['port_id'] }}&type=port_bits&width=459&height=213&lazy_w=552&from=end-24h&device&legend=yes"><br><br>
+<b>This Week:</b><br>
+<img src="http://SERVER/graph.php?id={{ $value['port_id'] }}&type=port_bits&width=459&height=213&lazy_w=552&from=end-168h&device&legend=yes"><br><br>
+<b>This Month:</b><br>
+<img src="http://SERVER/graph.php?id={{ $value['port_id'] }}&type=port_bits&width=459&height=213&lazy_w=552&from=end-1m&device&legend=yes"><br><br>
+<b>This Year:</b><br>
+<img src="http://SERVER/graph.php?id={{ $value['port_id'] }}&type=port_bits&width=459&height=213&lazy_w=552&from=end-12m&device&legend=yes"><br><br>
+@endforeach
