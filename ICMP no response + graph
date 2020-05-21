@@ -13,3 +13,12 @@
 <b>Today:</b><br>
 <img src="http://SERVER/graphs/type=device_netstat_ip/device={{ $value['device_id'] }}/from=end-24h/<br><br>
 @endforeach
+
+
+
+<!--
+#ALERT TITLE
+Host Error: @foreach($alert->faults as $key => $value){{ $alert->hostname }} ({{ $value['ipv4_address'] }}) @endforeach is DOWN
+#RECOVERY TITLE
+Host Notice: @foreach($alert->faults as $key => $value){{ $alert->hostname }} ({{ $value['ipv4_address'] }}) @endforeach has returned from DOWN state
+-->
