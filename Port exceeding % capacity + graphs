@@ -1,0 +1,16 @@
+<div style="font-family:Helvetica;">
+<h2> @if ($alert->state == 1) <span style="color:red;">{{ $alert->severity }}: port exceeding 85% usage @else <span style="color:green;">port returned to normal :) @endif </span></h2>
+<b>Device:</b> {{ $alert->hostname }}<br>
+<b>Location:</b> {{ $alert->location }}<br>
+<b>Uptime:</b> {{ $alert->uptime_long }}<br>
+<b>Duration:</b> {{ $alert->elapsed }}<br>
+<b>State:</b> {{ $alert->state }}<br><br><br>
+
+@foreach ($alert->faults as $key => $value)
+<h4><b>Physical Interface:</b> <a href="http://SERVER/device/device={{ $value['device_id'] }}/tab=port/port={{ $value['port_id'] }}/">{{ $value['ifDescr'] }}</a></h4>
+<b>Interface Description:</b> {{ $value['ifAlias'] }}<br>
+<b>Interface Speed:</b> {{ ($value['ifSpeed']/1000000000) }}Gbs<br>
+<b>Inbound Utilization:</b> {{ (($value['ifInOctets_rate']*8)/$value['ifSpeed'])*100 }}%<br>
+<b>Outbound Utilization:</b> {{ (($value['ifOutOctets_rate']*8)/$value['ifSpeed'])*100 }}%<br><br>
+<img src="http://SERVER/graph.php?id={{ $value['port_id'] }}&type=port_bits&width=459&height=213&lazy_w=552&from=end-24h&device&legend=yes"><br><br><br>
+@endforeach
