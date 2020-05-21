@@ -1,4 +1,4 @@
-<h2><span style="color:blue;">Weekly Bandwidth Report</span></h2>
+<h2><span style="color:blue;">Bandwidth Report</span></h2>
 
 @foreach ($alert->faults as $key => $value)
 <h4><b>Physical Interface:</b> {{ $value['ifDescr'] }}</h4>
