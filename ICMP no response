@@ -1,0 +1,15 @@
+<h2><span style="color:orange;">{{ $alert->hostname }} no longer responding to ping attempts</span></h2>
+
+<div style="font-family:Helvetica;">
+<h2> @if ($alert->state == 1) <span style="color:orange;">{{ $alert->severity }}: {{ $alert->hostname }} no longer responding to ping attempts @else <span style="color:green;">ping resolved, {{ $alert->hostname }} says hi :) @endif </span></h2>
+
+<h4><b>Device:</b> {{ $alert->hostname }}</h4>
+<b>Location:</b> {{ $alert->location }}<br>
+<b>Uptime:</b> {{ $alert->uptime_long }}<br>
+<b>Duration:</b> {{ $alert->elapsed }}<br>
+<b>State:</b> {{ $alert->state }}<br><br><br>
+
+@foreach ($alert->faults as $key => $value)
+<b>Today:</b><br>
+<img src="http://SERVER/graphs/type=device_netstat_ip/device={{ $value['device_id'] }}/from=end-24h/<br><br>
+@endforeach
