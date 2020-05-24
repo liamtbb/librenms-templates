@@ -7,4 +7,5 @@ ALERT/RECOVERY title formatting can be found at bottom of template in comments, 
 ---
 
 ### Configuring Graphs:
+
 Any instance(s) of 'SERVER' in template must be replaced with your corresponding FQDN, i.e. if your LibreNMS server is @ www.yourLibreNMS.com then all \<img src\> fields should be manually updated to resemble "http://www.yourLibreNMS.com/graph.php?..."
